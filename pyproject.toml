@@ -1,0 +1,25 @@
+[project]
+name = "spektrafilm-mcp"
+version = "0.1.0"
+description = "MCP server for spektrafilm spectral film simulation"
+readme = "README.md"
+requires-python = "~=3.13.0"
+license = { text = "GPLv3" }
+dependencies = [
+    "spektrafilm @ git+https://github.com/andreavolpato/spektrafilm@3bb2c2d2801ff68b92019cf1dbcbb133d60832bc",
+    "mcp>=1.20",
+    "Pillow>=12.1",
+]
+
+[project.scripts]
+spektrafilm-mcp = "spektrafilm_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spektrafilm_mcp"]
